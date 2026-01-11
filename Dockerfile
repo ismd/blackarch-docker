@@ -58,9 +58,10 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     hydra \
     # Forensics & Stego
     binwalk \
+    exiftool \
     foremost \
     steghide \
-    exiftool \
+    stegseek \
     # Reverse engineering
     gdb \
     pwndbg \
