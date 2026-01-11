@@ -1,0 +1,90 @@
+FROM blackarchlinux/blackarch:novnc
+
+RUN useradd -m builder \
+    && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+RUN pacman -Syu --needed --noconfirm base-devel git \
+    && su - builder -c " \
+        git clone https://aur.archlinux.org/yay.git /tmp/yay \
+        && cd /tmp/yay \
+        && makepkg -si --noconfirm \
+    " && rm -rf /tmp/yay
+
+# Base packages
+RUN su - builder -c "yay -S --needed --noconfirm \
+    bash-completion \
+    fd \
+    fzf \
+    lazygit \
+    less \
+    man-db \
+    neovim \
+    nodejs \
+    npm \
+    openssh \
+    python \
+    python-pip \
+    python-pwntools \
+    python-pycryptodome \
+    python-requests \
+    ripgrep \
+    starship \
+    unzip \
+    wget \
+    zsh \
+    && yay -Scc --noconfirm"
+
+# CTF tools
+RUN su - builder -c "yay -S --needed --noconfirm \
+    # Recon & Scanning
+    nmap \
+    masscan \
+    nikto \
+    # Web
+    ffuf \
+    wfuzz \
+    gobuster \
+    sqlmap \
+    # Exploitation
+    metasploit \
+    exploitdb \
+    # Wireless
+    aircrack-ng \
+    wifite \
+    # Password cracking
+    hashcat \
+    john \
+    hydra \
+    # Forensics & Stego
+    binwalk \
+    foremost \
+    steghide \
+    exiftool \
+    # Reverse engineering
+    gdb \
+    pwndbg \
+    ltrace \
+    strace \
+    # Network
+    wireshark-cli \
+    netcat \
+    socat \
+    # Crypto
+    cyberchef \
+    && yay -Scc --noconfirm"
+
+# zsh + starship
+RUN chsh -s /bin/zsh root \
+    && echo 'eval "$(starship init zsh)"' >> /root/.zshrc \
+    && echo 'autoload -Uz compinit && compinit' >> /root/.zshrc \
+    && echo 'bindkey -e' >> /root/.zshrc
+
+# LazyVim
+RUN git clone https://github.com/LazyVim/starter /root/.config/nvim \
+    && rm -rf /root/.config/nvim/.git
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+WORKDIR /app
+EXPOSE 8080/tcp
+CMD ["/bin/zsh"]
