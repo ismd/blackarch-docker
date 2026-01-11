@@ -41,10 +41,11 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     masscan \
     nikto \
     # Web
+    burpsuite \
     ffuf \
-    wfuzz \
     gobuster \
     sqlmap \
+    wfuzz \
     # Exploitation
     metasploit \
     exploitdb \
