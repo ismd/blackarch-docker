@@ -78,7 +78,8 @@ RUN su - builder -c "yay -S --needed --noconfirm \
 RUN chsh -s /bin/zsh root \
     && echo 'eval "$(starship init zsh)"' >> /root/.zshrc \
     && echo 'autoload -Uz compinit && compinit' >> /root/.zshrc \
-    && echo 'bindkey -e' >> /root/.zshrc
+    && echo 'bindkey -e' >> /root/.zshrc \
+    && echo 'export PATH="$PATH:/usr/bin/vendor_perl"' >> /root/.zshrc
 
 # LazyVim
 RUN git clone https://github.com/LazyVim/starter /root/.config/nvim \
