@@ -23,10 +23,12 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     npm \
     openssh \
     python \
+    python2 \
     python-pip \
     python-pwntools \
     python-pycryptodome \
     python-requests \
+    python2-requests \
     ripgrep \
     starship \
     unzip \
