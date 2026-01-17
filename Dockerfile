@@ -80,6 +80,7 @@ RUN chsh -s /bin/zsh root \
     && echo 'eval "$(starship init zsh)"' >> /root/.zshrc \
     && echo 'autoload -Uz compinit && compinit' >> /root/.zshrc \
     && echo 'bindkey -e' >> /root/.zshrc \
+    && echo 'WORDCHARS=""' >> /root/.zshrc \
     && echo 'export PATH="$PATH:/usr/bin/vendor_perl"' >> /root/.zshrc
 
 # LazyVim
