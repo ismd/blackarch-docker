@@ -27,8 +27,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: |
-            ismd/blackarch:latest
-            ismd/blackarch:${{ github.sha }}
+          tags: ismd/blackarch:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
