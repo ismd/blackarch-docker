@@ -31,6 +31,7 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     python2-requests \
     ripgrep \
     starship \
+    tldr \
     unzip \
     wget \
     zsh \
