@@ -76,8 +76,6 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     wireshark-cli \
     netcat \
     socat \
-    # Crypto
-    cyberchef \
     && yay -Scc --noconfirm"
 
 # zsh + starship
