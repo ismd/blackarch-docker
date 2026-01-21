@@ -3,6 +3,7 @@ FROM blackarchlinux/blackarch:novnc
 RUN useradd -m builder \
     && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
+# Install yay AUR helper
 RUN pacman -Syu --needed --noconfirm base-devel git \
     && su - builder -c " \
         git clone https://aur.archlinux.org/yay.git /tmp/yay \
@@ -11,7 +12,7 @@ RUN pacman -Syu --needed --noconfirm base-devel git \
     " && rm -rf /tmp/yay
 
 # Base packages
-RUN su - builder -c "yay -S --needed --noconfirm \
+RUN su - builder -c "yay -Sy --needed --noconfirm \
     bash-completion \
     fd \
     fzf \
