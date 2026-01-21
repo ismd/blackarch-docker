@@ -41,10 +41,10 @@ RUN su - builder -c "yay -Sy --needed --noconfirm \
 
 # CTF tools
 RUN su - builder -c "yay -S --needed --noconfirm \
-    # Recon & Scanning
-    nmap \
+    # Recon & Scanning    
     masscan \
     nikto \
+    nmap \
     # Web
     burpsuite \
     ffuf \
@@ -52,15 +52,15 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     sqlmap \
     wfuzz \
     # Exploitation
-    metasploit \
     exploitdb \
+    metasploit \
     # Wireless
     aircrack-ng \
     wifite \
     # Password cracking
     hashcat \
-    john \
     hydra \
+    john \
     # Forensics & Stego
     binwalk \
     exiftool \
@@ -69,13 +69,13 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     stegseek \
     # Reverse engineering
     gdb \
-    pwndbg \
     ltrace \
+    pwndbg \
     strace \
     # Network
-    wireshark-cli \
     netcat \
     socat \
+    wireshark-cli \
     && yay -Scc --noconfirm"
 
 # zsh + starship
