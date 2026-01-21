@@ -19,6 +19,7 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     less \
     man-db \
     neovim \
+    nfs-utils \
     nodejs \
     npm \
     openssh \
