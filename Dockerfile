@@ -16,6 +16,7 @@ RUN su - builder -c "yay -Sy --needed --noconfirm \
     bash-completion \
     fd \
     fzf \
+    jq \
     lazygit \
     less \
     man-db \
@@ -36,6 +37,7 @@ RUN su - builder -c "yay -Sy --needed --noconfirm \
     tldr \
     unzip \
     wget \
+    yq \
     zsh \
     && yay -Scc --noconfirm"
 
