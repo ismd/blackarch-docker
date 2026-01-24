@@ -20,6 +20,7 @@ RUN su - builder -c "yay -Sy --needed --noconfirm \
     lazygit \
     less \
     man-db \
+    nano \
     neovim \
     nfs-utils \
     nodejs \
