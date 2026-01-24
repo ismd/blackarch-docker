@@ -71,6 +71,7 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     stegseek \
     # Reverse engineering
     gdb \
+    gef \
     ltrace \
     pwndbg \
     strace \
