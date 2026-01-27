@@ -28,6 +28,7 @@ RUN su - builder -c "yay -Sy --needed --noconfirm \
     openssh \
     python \
     python2 \
+    python-bs4 \
     python-pip \
     python-pwntools \
     python-pycryptodome \
