@@ -45,6 +45,8 @@ RUN su - builder -c "yay -Sy --needed --noconfirm \
 
 # CTF tools
 RUN su - builder -c "yay -S --needed --noconfirm \
+    # Crypto
+    rsactftool \
     # Exploitation
     exploitdb \
     metasploit \
