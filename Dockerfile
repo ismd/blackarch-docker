@@ -26,6 +26,7 @@ RUN su - builder -c "yay -Sy --needed --noconfirm \
     nodejs \
     npm \
     openssh \
+    pocl \
     python \
     python2 \
     python-beautifulsoup4 \
