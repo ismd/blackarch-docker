@@ -63,6 +63,7 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     socat \
     wireshark-cli \
     # Password cracking
+    hash-identifier \
     hashcat \
     hydra \
     john \
