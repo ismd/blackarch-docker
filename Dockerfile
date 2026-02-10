@@ -96,6 +96,8 @@ RUN chsh -s /bin/zsh root \
     && echo 'WORDCHARS=""' >> /root/.zshrc \
     && echo 'bindkey "\\ef" emacs-forward-word' >> /root/.zshrc \
     && echo 'bindkey "\\eb" emacs-backward-word' >> /root/.zshrc \
+    && echo 'source /usr/share/fzf/key-bindings.zsh' >> /root/.zshrc \
+    && echo 'autoload -Uz edit-command-line && zle -N edit-command-line && bindkey "\\C-x\\C-e" edit-command-line' >> /root/.zshrc \
     && echo 'export PATH="$PATH:/usr/bin/vendor_perl"' >> /root/.zshrc
 
 # LazyVim
