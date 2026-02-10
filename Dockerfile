@@ -94,6 +94,8 @@ RUN chsh -s /bin/zsh root \
     && echo 'autoload -Uz compinit && compinit' >> /root/.zshrc \
     && echo 'bindkey -e' >> /root/.zshrc \
     && echo 'WORDCHARS=""' >> /root/.zshrc \
+    && echo 'bindkey "\\ef" emacs-forward-word' >> /root/.zshrc \
+    && echo 'bindkey "\\eb" emacs-backward-word' >> /root/.zshrc \
     && echo 'export PATH="$PATH:/usr/bin/vendor_perl"' >> /root/.zshrc
 
 # LazyVim
