@@ -56,7 +56,7 @@ RUN su - builder -c "yay -S --needed --noconfirm \
     binwalk \
     exiftool \
     foremost \
-    steghide \
+    # steghide Commented because mozjpeg fails to build
     stegseek \
     # Network
     netcat \
