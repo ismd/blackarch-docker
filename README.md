@@ -1,3 +1,6 @@
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ismd/blackarch-docker/docker-publish.yml)
+![Docker Pulls](https://img.shields.io/docker/pulls/ismd/blackarch)
+
 # BlackArch Docker
 
 Docker image based on [BlackArch Linux](https://github.com/BlackArch/blackarch-docker) with browser-accessible GUI.
