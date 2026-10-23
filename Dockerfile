@@ -36,6 +36,7 @@ RUN su - builder -c "yay -Sy --needed --noconfirm \
     python-requests \
     python2-requests \
     ripgrep \
+    smbclient \
     starship \
     tldr \
     unzip \
