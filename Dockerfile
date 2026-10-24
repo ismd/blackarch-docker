@@ -12,7 +12,7 @@ RUN pacman -Syu --needed --noconfirm base-devel git \
     " && rm -rf /tmp/yay
 
 # Base packages
-RUN su - builder -c "yay -Sy --needed --noconfirm \
+RUN su - builder -c "yay -Syu --needed --noconfirm \
     bash-completion \
     fd \
     fzf \
@@ -46,7 +46,7 @@ RUN su - builder -c "yay -Sy --needed --noconfirm \
     && yay -Scc --noconfirm"
 
 # CTF tools
-RUN su - builder -c "yay -S --needed --noconfirm \
+RUN su - builder -c "yay -Syu --needed --noconfirm \
     # Crypto
     rsactftool \
     rsatool \
