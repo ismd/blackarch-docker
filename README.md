@@ -11,7 +11,7 @@ Docker image based on [BlackArch Linux](https://github.com/BlackArch/blackarch-d
 
 **Terminal mode (default):**
 ```bash
-docker run -it --rm -v "$PWD":/app ismd/blackarch
+docker run -it -v "$PWD":/app ismd/blackarch
 ```
 
 **GUI mode (noVNC):**
