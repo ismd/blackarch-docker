@@ -19,6 +19,7 @@ RUN su - builder -c "yay -Syu --needed --noconfirm \
     jq \
     lazygit \
     less \
+    lua-language-server \
     man-db \
     nano \
     neovim \
@@ -36,9 +37,12 @@ RUN su - builder -c "yay -Syu --needed --noconfirm \
     python-requests \
     python2-requests \
     ripgrep \
+    shfmt \
     smbclient \
     starship \
+    stylua \
     tldr \
+    tree-sitter-cli \
     unzip \
     wget \
     yq \
@@ -101,9 +105,17 @@ RUN chsh -s /bin/zsh root \
     && echo 'autoload -Uz edit-command-line && zle -N edit-command-line && bindkey "\\C-x\\C-e" edit-command-line' >> /root/.zshrc \
     && echo 'export PATH="$PATH:/usr/bin/vendor_perl"' >> /root/.zshrc
 
-# LazyVim
+# LazyVim with preinstalled plugins and Treesitter parsers (Mason disabled, LSP and formatters come from pacman)
 RUN git clone https://github.com/LazyVim/starter /root/.config/nvim \
-    && rm -rf /root/.config/nvim/.git
+    && rm -rf /root/.config/nvim/.git \
+    && echo 'return { { "mason-org/mason.nvim", enabled = false }, { "mason-org/mason-lspconfig.nvim", enabled = false } }' > /root/.config/nvim/lua/plugins/mason.lua \
+    && nvim --headless "+Lazy! sync" \
+        "+lua require('nvim-treesitter').install(LazyVim.opts('nvim-treesitter').ensure_installed):wait(300000)" \
+    +qa
+
+# Base image hardcodes EDITOR=vim in shell configs, drop it so ENV and `docker run -e EDITOR=...` work
+RUN sed -i '/^export EDITOR=/d' /root/.zshrc /root/.bashrc
+ENV EDITOR=nvim
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
